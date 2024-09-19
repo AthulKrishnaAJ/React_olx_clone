@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+
+
+import { AuthContext, FirebaseContext } from '../../store/FirebaseContext';
+import {  signOut } from "firebase/auth";
 
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
@@ -6,7 +11,36 @@ import Search from '../../assets/Search';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
+
+
 function Header() {
+
+  const [isHovered, setIsHovered] = useState(false)
+  const {user} = useContext(AuthContext)
+  const { auth } = useContext(FirebaseContext)
+  const navigate = useNavigate()
+  let timeOut
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeOut)
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeOut = setTimeout(() => {
+    setIsHovered(false)
+    }, 200)
+  }
+
+  const signOutUser =  () => {
+      signOut(auth).then(() => {
+          navigate('/login')
+          console.log('Signout successfully')
+      }).catch((error) => {
+        console.log(error.message)
+      })
+  }
+
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -33,12 +67,25 @@ function Header() {
           <span> ENGLISH </span>
           <Arrow></Arrow>
         </div>
-        <div className="loginPage">
-          <span>Login</span>
+
+        <div 
+        className="loginPage"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
+
+          {user ? <span>Welcome {user.displayName}</span>
+           : <span onClick={() => navigate('/login')}>Login</span>}
           <hr />
+         { isHovered && user && (
+            <div className='dropdown'>
+            <span onClick={signOutUser}>Logout</span>
+          </div>
+        )}
+    
         </div>
 
-        <div className="sellMenu">
+        <div className="sellMenu"
+         onClick={() => navigate('/create')}>
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>

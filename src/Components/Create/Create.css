@@ -1,12 +1,13 @@
 .centerDiv {
-    border: 1px solid black;
+    border: 1px solid hsla(0, 0%, 0%, 0.300);
     width: max-content;
     padding: 50px;
     position: absolute;
-    top: 65%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 6px;
+    border-radius: 5px;
+    box-shadow: 4px 10px 14px hsla(0, 0%, 0%, 0.300);
   }
   .input {
     border-top-color: transparent;
@@ -23,10 +24,17 @@
     background-color: #002f34;
     color: whitesmoke;
     font-weight: 900;
+    border: none;
+    border-radius: 3px;
   }
   .uploadBtn:hover {
     background-color: white;
     color: #002f34;
     border: 2px solid #002f34;
+  }
+
+  .centerDiv img {
+    width: 150px;
+    height: 150px;
   }
   
