@@ -5,6 +5,7 @@ import Logo from '../../olx-logo.png';
 import './Login.css';
 import { FirebaseContext } from '../../store/FirebaseContext';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'sonner';
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -19,10 +20,14 @@ function Login() {
     try {
         const userCredential = await signInWithEmailAndPassword(
           auth,
-          email, password
+          email, 
+          password
         )
-        
-        navigate('/')
+    
+        toast.success("Login successful")
+        setTimeout(() => {
+          navigate('/')
+        }, 1500);
         console.log('User logged in with user credential: ', userCredential.user)
     } catch (error) {
       console.log(error.message)

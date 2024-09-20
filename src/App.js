@@ -4,9 +4,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css';
 import { AuthContext, FirebaseContext } from './store/FirebaseContext';
 import { onAuthStateChanged } from 'firebase/auth';
-/**
- * ?  =====Import Components=====
- */
+
+// import components
 import Home from './Pages/Home';
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'

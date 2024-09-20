@@ -8537,7 +8537,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-dom@*, react-dom@^18.3.1, react-dom@>=16.8:
+react-dom@*, "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0", react-dom@^18.0.0, react-dom@^18.3.1, react-dom@>=16.8:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -8549,6 +8549,11 @@ react-error-overlay@^6.0.11:
   version "6.0.11"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
+
+react-icons@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-5.3.0.tgz"
+  integrity sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -8640,7 +8645,12 @@ react-scripts@^5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react@*, react@^18.3.1, "react@>= 16", react@>=16.8:
+react-spinners@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.npmjs.org/react-spinners/-/react-spinners-0.14.1.tgz"
+  integrity sha512-2Izq+qgQ08HTofCVEdcAQCXFEYfqTDdfeDQJeo/HHQiQJD4imOicNLhkfN2eh1NYEWVOX4D9ok2lhuDB0z3Aag==
+
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.3.1, "react@>= 16", react@>=16.8:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -9204,6 +9214,11 @@ sockjs@^0.3.24:
     faye-websocket "^0.11.3"
     uuid "^8.3.2"
     websocket-driver "^0.7.4"
+
+sonner@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/sonner/-/sonner-1.5.0.tgz"
+  integrity sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==
 
 source-list-map@^2.0.0, source-list-map@^2.0.1:
   version "2.0.1"

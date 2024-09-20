@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState ,useEffect, useContext } from 'react';
 
 import Heart from '../../assets/Heart';
 import './Post.css';
 
+import { FirebaseContext } from '../../store/FirebaseContext';
+
+import { getDocs, collection } from 'firebase/firestore';
+
 function Posts() {
+
+  const { firestore, auth, storage} = useContext(FirebaseContext)
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+      const fetchData = async () => {
+        try{
+          const productQuery = await getDocs(collection(firestore, "products"));
+          
+        }catch(error){
+          console.log('Error while fetching products: ', error.message)
+        }
+      }
+  })
 
   return (
     <div className="postParentDiv">

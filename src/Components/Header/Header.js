@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
+
 
 
 import { AuthContext, FirebaseContext } from '../../store/FirebaseContext';
@@ -19,6 +20,7 @@ function Header() {
   const {user} = useContext(AuthContext)
   const { auth } = useContext(FirebaseContext)
   const navigate = useNavigate()
+  const location = useLocation()
   let timeOut
 
   const handleMouseEnter = () => {
@@ -41,7 +43,10 @@ function Header() {
       })
   }
 
+
+
   return (
+  
     <div className="headerParentDiv">
       <div className="headerChildDiv">
         <div className="brandName">
@@ -83,17 +88,21 @@ function Header() {
         )}
     
         </div>
-
-        <div className="sellMenu"
-         onClick={() => navigate('/create')}>
+        <div className="sellMenu">
+        {location.pathname !== '/create' && (
+          <div 
+           onClick={() => navigate('/create')}>
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
             <span>SELL</span>
           </div>
         </div>
+        )}
+          </div>
       </div>
     </div>
+    
   );
 }
 

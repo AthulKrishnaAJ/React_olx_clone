@@ -5,10 +5,12 @@ import Banner from '../Components/Banner/Banner';
 
 import Posts from '../Components/Posts/Posts';
 import Footer from '../Components/Footer/Footer';
+import { Toaster } from 'sonner';
 
 function Home(props) {
   return (
     <div className="homeParentDiv">
+      <Toaster richColors position='top-center'/>
       <Header />
       <Banner />
       <Posts />

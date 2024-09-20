@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { toast } from 'sonner';
+
 import Logo from '../../olx-logo.png';
 import './Signup.css';
 import { FirebaseContext } from '../../store/FirebaseContext';
@@ -16,7 +18,6 @@ export default function Signup() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   const [errors, setErrors] = useState({})
-
   const {firestore, auth} = useContext(FirebaseContext)
 
   const validateForm = () => {
@@ -84,11 +85,15 @@ export default function Signup() {
           username: username,
           phone: phone
         })
-
         console.log('userId: ', doc.id)
-        navigate('/login')
-        
+        setTimeout(() => {
+          navigate('/login')
+        }, 1000)
+
+        toast.success('Signup successfully')
+
     }catch(error) {
+        toast.error('Email already exist')
         console.log(error.message)
     }
   }

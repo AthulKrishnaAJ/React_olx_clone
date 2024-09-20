@@ -1,6 +1,6 @@
 .centerDiv {
     border: 1px solid hsla(0, 0%, 0%, 0.300);
-    width: max-content;
+    width: 30%;
     padding: 50px;
     position: absolute;
     top: 55%;
@@ -14,13 +14,15 @@
     border-left-color: transparent;
     border-right-color: transparent;
     outline-color: transparent;
+    width: 100%;  
+  }
+  .imgUploader {
+    margin-top: 5px;
   }
   
   .uploadBtn {
-    margin-top: 30px;
     width: 100%;
     height: 48px;
-    /* border-color: transparent; */
     background-color: #002f34;
     color: whitesmoke;
     font-weight: 900;
@@ -34,7 +36,25 @@
   }
 
   .centerDiv img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
-  
+  .formWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+  }
+  .loaing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+
+  }
+  .loginError {
+    margin-top: 2rem;
+  }
