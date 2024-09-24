@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 export default  function OlxLogo() {
     return(  
-          <svg
+          <svg 
         width="48px"
         height="48px"
         viewBox="0 0 1024 1024"

@@ -10,6 +10,7 @@ import Home from './Pages/Home';
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import Create from './Pages/Create'
+import ViewPost from './Pages/ViewPost';
 
 function App() {
   const { setUser } = useContext(AuthContext)
@@ -31,6 +32,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path='/login' element={<Login/>} />
           <Route path='/create' element={<Create />} />
+          <Route path='/view' element={<ViewPost />} />
        </Routes>
       </BrowserRouter>
     </div>
