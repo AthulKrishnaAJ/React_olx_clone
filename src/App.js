@@ -5,6 +5,8 @@ import './App.css';
 import { AuthContext, FirebaseContext } from './store/FirebaseContext';
 import { onAuthStateChanged } from 'firebase/auth';
 
+import { Post } from './store/postContext'
+
 // import components
 import Home from './Pages/Home';
 import Signup from './Pages/Signup'
@@ -26,6 +28,9 @@ function App() {
   
   return (
     <div>
+
+    <Post>
+
       <BrowserRouter>
        <Routes>
           <Route path="/" element={<Home/>}/>
@@ -35,6 +40,9 @@ function App() {
           <Route path='/view' element={<ViewPost />} />
        </Routes>
       </BrowserRouter>
+
+    </Post>
+
     </div>
   );
 }

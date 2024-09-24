@@ -32,7 +32,7 @@ const Create = () => {
       
       let formErrors = {}
       let isValid = true
-      let validChar = /^[a-zA-Z0-9]+$/
+      let validChar = /^[a-zA-Z0-9\s]+$/;
       const allowedFile = ['image/jpg', 'image/jpeg', 'image/png']
       
       if (!user || !user.uid) {
@@ -40,7 +40,7 @@ const Create = () => {
         return false
       } 
 
-      if (name === '') {
+      if (name.trim() === '') {
           formErrors.nameError = 'Field is required';
           isValid = false
       } else if (!validChar.test(name)) {
