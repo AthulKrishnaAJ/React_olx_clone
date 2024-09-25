@@ -52,11 +52,11 @@ function Header() {
         <div className="brandName" onClick={() => navigate('/')}>
           <OlxLogo></OlxLogo>
         </div>
-        <div className="placeSearch">
+        {/* <div className="placeSearch">
           <Search></Search>
           <input type="text" />
           <Arrow></Arrow>
-        </div>
+        </div> */}
         <div className="productSearch">
           <div className="input">
             <input

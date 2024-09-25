@@ -11,7 +11,7 @@
 .bannerParentDiv .bannerChildDiv .menuBar span {
 }
 
-.bannerParentDiv .bannerChildDiv .menuBar .categoryMenu span {
+.bannerParentDiv .bannerChildDiv .menuBar .categoryMenu .categoryHead {
   margin-right: 16px;
   font-weight: bolder;
 }
@@ -29,6 +29,10 @@
 .bannerChildDiv .banner img{
   width: 100%;
 }
+.otherQuickOptions span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 @media only screen and (max-width: 700px) {
   .otherQuickOptions {
@@ -38,3 +42,46 @@
     position: relative;
   }
 }
+.categoryMenu {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  
+}
+.categoryMenu .categoryPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  padding: 10px;
+  border-radius: 2px;
+  cursor: text;
+ 
+}
+
+.categoryList {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: white;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  
+}
+
+.categoryList:hover {
+  background-color: #e1dede8e;
+  
+ 
+}
+.categoryList span {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+

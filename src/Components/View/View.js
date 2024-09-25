@@ -1,5 +1,4 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import './View.css';
 import { postContext } from '../../store/postContext';
@@ -13,7 +12,7 @@ function View() {
   const [userDetails, setUserDetails] = useState()
   const {postDetails, setPostDetails} = useContext(postContext)
   const { firestore } = useContext(FirebaseContext)
-  const navigate = useNavigate()
+
 
 
   useEffect(() => {
@@ -44,7 +43,7 @@ function View() {
     fetchUser()
   
     
-  }, [postDetails])
+  }, [])
 
   return (
     <div className="viewParentDiv">
@@ -55,18 +54,21 @@ function View() {
         />
       </div>
       <div className="rightSection">
+        <h3>Product Details</h3>
         <div className="productDetails">
           <p>&#x20B9; {postDetails.price} </p>
           <span>{postDetails.name}</span>
           <p>{postDetails.category}</p>
           <span>{postDetails.createdAt}</span>
-        </div>
+        </div>  
         { userDetails && (
+          <div>
+        <h3>Seller Details</h3>
         <div className="contactDetails">
-          <p>Seller details</p>
-            <p>{userDetails.username}</p>
-            <p>1234567890</p>
+            <p>Name: {userDetails.username}</p>
+            <p>Phone: 1234567890</p>
 
+        </div>
         </div>
         )
 
