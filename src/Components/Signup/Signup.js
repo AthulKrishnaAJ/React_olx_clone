@@ -23,13 +23,15 @@ export default function Signup() {
   const validateForm = () => {
       let formsErrors = {}
       let isValid = true
-
+      const validChar = /^[a-zA-Z\s]+$/;
       const emailRegex = /\S+@\S+\.\S+/;
 
       if (!username) {
         formsErrors.usernameError = 'Field is required'
         isValid  = false
-      } else {
+      } else if(!validChar.test(username)){
+        formsErrors.usernameError = 'Enter a valid name'
+      }else {
         formsErrors.usernameError = ''
       }
 

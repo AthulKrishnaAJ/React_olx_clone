@@ -11,47 +11,68 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
-  const [error, setErrors] = useState('')
   const { auth } = useContext(FirebaseContext)
+  const [validation, setValidation] = useState({})
+
+
+  const handleValidation = () => {
+      let isValid = true
+      let validations = {}
+
+      if(!email){
+        validations.emailError = 'Field is required'
+        isValid = false
+      }
+
+      if(!password){
+        validations.passError = 'Field is required'
+        isValid = false
+      }
+      setValidation(validations)
+      return isValid
+  }
   
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          email, 
-          password
-        )
-    
-        toast.success("Login successful")
-        setTimeout(() => {
-          navigate('/')
-        }, 1500);
-        console.log('User logged in with user credential: ', userCredential.user)
-    } catch (error) {
-      console.log(error.message)
-      setErrors('Invalid Credentials')
+    if(handleValidation()){
+      try {
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email, 
+            password
+          )
+      
+          toast.success("Login successful")
+          setTimeout(() => {
+            navigate('/')
+          }, 1500);
+          console.log('User logged in with user credential: ', userCredential.user)
+      } catch (error) {
+        console.log(error.message)
+        toast.error('Invalid Credentials')
+  
+      }
 
     }
   }
 
-  const errorStyle = {
+  const {emailError, passError} = validation
+
+
+  const validationStyle = {
     color: 'red',
-    fontSize: '14px',
-    textAlign: 'center',
-    display: 'block',
-    marginBottom: '5px'
-    
+    fontSize: '12px'
   }
   
   return (
     <div>
       <div className="loginParentDiv">
         <img alt='logo' width="150px" height="150px" src={Logo}></img>
-        <form onSubmit={handleSubmit}>
+        <form >
           <label htmlFor="fname ">Email</label>
           <br />
+        {emailError && <span style={validationStyle}>*{emailError}</span>}
           <input
             className="input"
             type="email"
@@ -64,6 +85,7 @@ function Login() {
           <br />
           <label htmlFor="lname">Password</label>
           <br />
+        {passError && <span style={validationStyle}>*{passError}</span>}
           <input
             className="input"
             type="password"
@@ -75,8 +97,8 @@ function Login() {
           />
           <br />
           <br />
-          {error && <span style={errorStyle}>{error}</span>}
-          <button>Login</button>
+    
+          <button onClick={handleSubmit}>Login</button>
         </form>
         <a href='#!' onClick={() => navigate('/signup')}>Signup</a>
       </div>
